@@ -21,7 +21,9 @@ class: center, middle, inverse
 - コンテナオーケストレーションツール
 - オープンソース
 
+.center[
 ![kubernetes](https://upload.wikimedia.org/wikipedia/en/0/00/Kubernetes_%28container_engine%29.png)
+]
 
 ---
 ## コンテナ？
@@ -408,3 +410,5 @@ class: center, middle
 <https://www.cncf.io/phippy/>
 
 <https://github.com/kubernetes>
+
+<https://github.com/MasayaAoyama/kubernetes-perfect-guide>
