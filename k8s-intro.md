@@ -119,27 +119,12 @@ class: center, middle, inverse
 
 ---
 class: center, middle, inverse
-# リソース
+# アーキテクチャ
 
 ---
-## リソース
+class: center, middle
 
-- Cluster
-- Master
-- Node
-- Pod
-- ReplicaSet
-- Deployment
-- Job
-- CronJob
-
----
-## リソース
-
-- Service
-- Ingress
-- Namespace
-- Volume
+![architecture](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Kubernetes.png/660px-Kubernetes.png)
 
 ---
 ## Cluster
@@ -163,6 +148,72 @@ class: center, middle, inverse
 - 1つ以上のコンテナを内包する単位
 
 ---
+## etcd
+
+- 永続的で軽量な分散Key-Valueストア
+- クラスタの設定や状態を保存
+
+---
+## API Server
+
+- Kubernetes APIのサーバー
+- Kubernetesに対する内外のインターフェースを提供する
+
+---
+## Scheduler
+
+- 新規Podを最適なノードに配置
+- リソースの供給を需要に合わせる
+
+---
+## Controller Manager
+
+- クラスタの状態を維持
+    - レプリカ数
+    - ジョブ
+
+---
+## Kubelet
+
+- ノード内の管理
+    - Podの状態を監視、異常があれば再デプロイ
+    - ノード状態をマスターに送信
+
+---
+## Kube-proxy
+
+- プロキシ、ロードバランサーの役割
+
+---
+## cAdvisor
+
+- リソースの使用量を監視、収集
+
+---
+class: center, middle, inverse
+# リソース
+
+---
+## リソース
+
+- ReplicaSet
+- Deployment
+- DaemonSet
+- Job
+- CronJob
+- Service
+- Ingress
+- Namespace
+
+---
+## リソース
+
+- Secret
+- StatefulSet
+- Volume
+- PersistentVolume
+
+---
 ## ReplicaSet
 
 - Podを管理、複製
@@ -175,9 +226,14 @@ class: center, middle, inverse
     - 更新、ロールバック、削除
 
 ---
+## DaemonSet
+
+- 各ノードに1つずつPodを配置する
+
+---
 ## Job
 
-- 1度のみ実行するプロセス
+- 1度のみ実行する
 
 ---
 ## CronJob
@@ -199,12 +255,33 @@ class: center, middle, inverse
 ## Namespace
 
 - リソースの分割
-- 仮想クラスタ
+    - 仮想クラスタ
+
+---
+## Secret
+
+- 機密情報を定義
+    - kubesec
+
+---
+## ConfigMap
+
+- Key-Valueでデータを保持
+
+---
+## StatefulSet
+
+- データの永続化
 
 ---
 ## Volume
 
-- ストレージの共有
+- ホスト上の領域をマッピング
+
+---
+## PersistentVolume
+
+- 永続化領域
 
 ---
 class: center, middle, inverse
@@ -225,3 +302,12 @@ class: center, middle
 ---
 class: center, middle
 <img src="https://images-na.ssl-images-amazon.com/images/I/71F%2BqeYXNgL.jpg" width=55%>
+
+---
+## 参考サイト
+
+<https://kubernetes.io/docs/home/>
+
+<https://www.cncf.io/phippy/>
+
+<https://github.com/kubernetes>
