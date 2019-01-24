@@ -285,6 +285,103 @@ class: center, middle, inverse
 
 ---
 class: center, middle, inverse
+# マニフェスト例
+
+---
+## Pod
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:1.12
+```
+
+---
+## ReplicaSet
+
+.zoom1[
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: sample-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+
+```
+]
+
+---
+## Deployment
+
+.zoom1[
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.12
+          ports:
+            - containerPort: 80
+```
+]
+
+---
+## Job
+
+.zoom1[
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sample-job
+spec:
+  completions: 1
+  parallelism: 1
+  backoffLimit: 10
+  template:
+    spec:
+      containers:
+      - name: sleep-container
+        image: centos:6
+        command: ["sleep"]
+        args: ["60"]
+      restartPolicy: Never
+```
+]
+
+---
+class: center, middle, inverse
 # 書籍紹介
 
 ---
